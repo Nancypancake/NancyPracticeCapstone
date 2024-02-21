@@ -9,3 +9,8 @@ def index():
 @app.route('/aboutus')
 def aboutus():
     return render_template('aboutus.html')
+
+#making your own route
+@app.route('/missionstatement')
+def missionstatement():
+    return render_template('missionstatement.html')

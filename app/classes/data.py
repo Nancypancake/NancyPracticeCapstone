@@ -35,23 +35,23 @@ class User(UserMixin, Document):
     adult_lname = StringField()
     adult_email = StringField()
     consent = BooleanField(default=False)
+    role = StringField()
+    age = IntField()
 
     meta = {
         'ordering': ['lname','fname']
     }
 
-class Sleep(Document):
-    sleeper = ReferenceField('User',reverse_delete_rule=CASCADE)
-    rating = IntField()
-    feel = IntField()
-    start = DateTimeField()
-    end = DateTimeField()
-    sleep_date = DateTimeField()
-    hours = FloatField()
-    minstosleep = IntField()
+class Status(Document):
+    user = ReferenceField('User',reverse_delete_rule=CASCADE)
+    mood = IntField()
+    note = StringField()
+    favorite = StringField()
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
 
     meta = {
-        'ordering': ['sleep_date']
+        'ordering': ['-createdate']
     }
     
 class Blog(Document):

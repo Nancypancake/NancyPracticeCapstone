@@ -13,6 +13,8 @@ class ProfileForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])
     lname = StringField('Last Name', validators=[DataRequired()]) 
     image = FileField("Image") 
+    role = SelectField('Role', choices=[('Creator','Creator'),('Client','Client')])
+    age = IntegerField('Age', validators=[DataRequired()])
     submit = SubmitField('Post')
 
 class ConsentForm(FlaskForm):
@@ -22,15 +24,12 @@ class ConsentForm(FlaskForm):
     consent = RadioField('Do you want your parents or teachers to see your sleep data/graph', choices=[(True,"True"),(False,"False")])
     submit = SubmitField('Submit')
 
-class SleepForm(FlaskForm):
-    rating = SelectField("How would you rate your sleep: 5 is great, 1 is poor", choices=[(None,'---'),(1,1),(2,2),(3,3),(4,4),(5,5)], validators=[DataRequired()])
-    starttime = TimeField("Start Time")   
-    endtime = TimeField("End Time")   
-    feel = SelectField("How did you feel when you woke up: 5 is great, 1 is poor", choices=[(None,'---'),(1,1),(2,2),(3,3),(4,4),(5,5)], validators=[DataRequired()])
-    sleep_date = DateField("What date did you go to sleep")
-    wake_date = DateField("What date did you wake up")
-    minstosleep = IntegerField("How many minutes did it take you to fall asleep?", validators=[NumberRange(min=0,max=180, message="Enter a number between 0 and 180.")])
+class StatusForm(FlaskForm):
+    mood = SelectField('Rate your emotional state from 1 (lowest-- terrible) to 5 (highest-- amazing)', choices=[(None,'---'),(1,1),(2,2),(3,3),(4,4),(5,5)], validators=[DataRequired()])
+    note = TextAreaField('Free Space to explain your state', validators=[DataRequired()])
+    favorite = StringField('Mention one thing you really like!', validators=[DataRequired()])
     submit = SubmitField("Submit")
+
 
 class BlogForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])

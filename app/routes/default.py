@@ -11,6 +11,6 @@ def aboutus():
     return render_template('aboutus.html')
 
 #making your own route
-@app.route('/missionstatement')
-def missionstatement():
-    return render_template('missionstatement.html')
+@app.route('/overview')
+def overview():
+    return render_template('overview.html')

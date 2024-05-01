@@ -8,14 +8,14 @@
         {{ form.hidden_tag() }}
         <p>
             {{ form.fname.label }}<br>
-            {{ form.fname(size=64) }}<br>
+            {{ form.fname(size=30) }}<br>
             {% for error in form.fname.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>
             {{ form.role.label }}<br>
-            {{ form.role(size=8) }}<br>
+            {{ form.role() }}<br>
             {% for error in form.role.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}

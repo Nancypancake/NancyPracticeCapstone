@@ -55,7 +55,7 @@ class Status(Document):
     }
 
 class Response(Document):
-    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    user = ReferenceField('User',reverse_delete_rule=CASCADE) 
     status = ReferenceField('Status',reverse_delete_rule=CASCADE)
     response = ReferenceField('Response',reverse_delete_rule=CASCADE)
     note = StringField()

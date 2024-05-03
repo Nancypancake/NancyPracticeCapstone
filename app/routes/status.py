@@ -86,7 +86,7 @@ def responseNew(statusID):
     form = ResponseForm()
     if form.validate_on_submit():
         newResponse = Response(
-            author = current_user.id,
+            user = current_user.id,
             status = statusID,
             note = form.note.data
         )
@@ -98,7 +98,7 @@ def responseNew(statusID):
 @login_required
 def responseEdit(responseID):
     editResponse = Response.objects.get(id=responseID)
-    if current_user != editResponse.author:
+    if current_user != editResponse.user:
         flash("You can't edit a response you didn't write.")
         return redirect(url_for('status',statusID=editResponse.status.id))
     status = Status.objects.get(id=editResponse.status.id)

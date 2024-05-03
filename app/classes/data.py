@@ -53,7 +53,19 @@ class Status(Document):
     meta = {
         'ordering': ['-createdate']
     }
-    
+
+class Response(Document):
+    author = ReferenceField('User',reverse_delete_rule=CASCADE) 
+    status = ReferenceField('Status',reverse_delete_rule=CASCADE)
+    response = ReferenceField('Response',reverse_delete_rule=CASCADE)
+    note = StringField()
+    create_date = DateTimeField(default=dt.datetime.utcnow)
+    modify_date = DateTimeField()
+
+    meta = {
+        'ordering': ['-createdate']
+    }    
+
 class Blog(Document):
     author = ReferenceField('User',reverse_delete_rule=CASCADE) 
     subject = StringField()

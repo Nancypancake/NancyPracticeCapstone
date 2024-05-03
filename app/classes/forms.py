@@ -30,6 +30,9 @@ class StatusForm(FlaskForm):
     favorite = StringField('Mention one thing you really like!', validators=[DataRequired()])
     submit = SubmitField("Submit")
 
+class ResponseForm(FlaskForm):
+    note = TextAreaField('Response', validators=[DataRequired()])
+    submit = SubmitField('Respond')
 
 class BlogForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])

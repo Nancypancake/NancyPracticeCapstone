@@ -10,8 +10,13 @@
             {% endfor %}
         {% endfor %}
 
-        <h1 class="display-5">{{status.favorite}}</h1>
-        {{status.note}} <br>
+        <h1 class="display-5">
+            {{status.mood}}
+            <br>
+            {{status.note}}
+            <br>
+            {{status.favorite}}
+        </h1>
         <h1 class="display-5">New Response</h1>
 
         <form method=post>

@@ -24,8 +24,29 @@
             Mood: {{status.mood}} <br>
             Note: {{status.note}} <br>
             Favorite: {{status.favorite}} <br>
+    </p>
+    <a href="/response/new/{{status.id}}" class="btn btn-primary btn-sm" role="button">New Response</a>
+    {% if responses %}
+    <h1 class="display-5">Responses</h1>
+    {% for response in responses %}
+        {% if current_user == response.user %}
+            <a href="/response/delete/{{response.id}}"><img width="20" src="/static/delete.png"></a> 
+            <a href="/response/edit/{{response.id}}"><img width="20" src="/static/edit.png"></a>
+        {% endif %}
+        {{moment(response.create_date).calendar()}} {{response.user.username}} 
+        {% if response.modify_date %}
+            modified {{moment(response.modify_date).calendar()}}
+        {% endif %}
+        <br>
+        <p class="fs-3">
+            {{response.note}}
+        </p>
+    {% endfor %}
+    {% else %}
+        <h1 class="display-5">No Responses</h1>
+    {% endif %}
 {% else %}
-    No Status Here
+
 {% endif %}
 
 {% endblock %}

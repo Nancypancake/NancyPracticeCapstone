@@ -58,7 +58,8 @@ def statusEdit(statusID):
 
 def status(statusID):
     thisStatus = Status.objects.get(id=statusID)
-    return render_template("status.html",status=thisStatus)
+    theseResponses = Response.objects(status=thisStatus)
+    return render_template("status.html",status=thisStatus,responses=theseResponses)
 
 @app.route('/statuses')
 @login_required

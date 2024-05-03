@@ -36,8 +36,8 @@
             <a href="/comment/edit/{{comment.id}}"><img width="20" src="/static/edit.png"></a>
         {% endif %}
         {{moment(comment.create_date).calendar()}} {{comment.author.username}} 
-        {% if comment.modifydate %}
-            modified {{moment(comment.modifydate).calendar()}}
+        {% if comment.modify_date %}
+            modified {{moment(comment.modify_date).calendar()}}
         {% endif %}
         <br>
         <p class="fs-3">

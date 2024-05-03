@@ -107,7 +107,7 @@ def responseEdit(responseID):
     if form.validate_on_submit():
         editResponse.update(
             note = form.note.data,
-            modifydate = dt.datetime.utcnow
+            modify_date = dt.datetime.utcnow
         )
         return redirect(url_for('status',statusID=editResponse.status.id))
 

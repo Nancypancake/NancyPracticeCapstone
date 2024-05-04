@@ -11,7 +11,7 @@
             <img width="40" class="bottom-image" src="/static/edit.png">
         </a>
     {% endif %}
-    <h1 class="display-2">{{status.user.fname}} {{status.user.lname}} </h1>
+    <h1 class="display-3">{{status.user.fname}} {{status.user.lname}} </h1>
     <h1 class="display-5">{{moment(status.create_date).format('MMMM Do YYYY')}}</h1>
     {% if status.modify_date %}
         modified {{moment(status.modify_date).calendar()}}

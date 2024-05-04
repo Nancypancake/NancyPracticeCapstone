@@ -18,7 +18,7 @@
         <div class="container row border-bottom">
             <div class="col-2">
                 {% if loop.index == 1 %}
-                <h3 class="display-5">Date</h3>
+                <h3 class="display-6">Date</h3>
                 {% endif %}
 
                 <a href="/blog/{{blog.id}}">
@@ -27,13 +27,13 @@
             </div>
             <div class="col-2">
                 {% if loop.index == 1 %}
-                <h3 class="display-5">User</h3>
+                <h3 class="display-6">User</h3>
                 {% endif %}
                 {{blog.author.fname}} {{blog.author.lname}}
             </div>
             <div class="col">
                 {% if loop.index == 1 %}
-                    <h3 class="display-5">Subject</h3>
+                    <h3 class="display-6">Subject</h3>
                 {% endif %}
                 {{blog.subject}}
             </div>

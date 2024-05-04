@@ -1,18 +1,35 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" height= "200" alt="...">
-
-<img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" height= "200" alt="...">    </div>
-<div class="row">
-    <div class="col">
-        <h1 class="display-5">Any Feedback for us?</h1>
-    </div>
-    <div class="col">
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <img
+          <img
+          src="/static/CloudsPNG.png"
+          class="rounded mx-auto d-block"
+          width="150"
+          height="150"
+          alt="..."
+        />
+      </div>
+      <div class="col-5">
+        <h1 class="display-4 text-center">Any Feedback for Us?</h1> 
         <a href="/blog/new" class="btn btn-light btn-sm mt-5" role="button">Add a post here</a>
+      </div>
+      <div class="col">
+        <img
+          <img
+          src="/static/CloudsPNG.png"
+          class="rounded mx-auto d-block"
+          width="150"
+          height="150"
+          alt="..."
+        />
+      </div>
     </div>
-</div>
-
+  </div>
+<br>
 {% if blogs %}
     {% for blog in blogs %}
         <div class="container row border-bottom">

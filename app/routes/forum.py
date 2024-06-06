@@ -26,7 +26,7 @@ def blogList():
     return render_template('blogs.html',blogs=blogs)
 
 # This route will get one specific blog and any comments associated with that blog.  
-# The blogID is a variable that must be passsed as a parameter to the function and 
+# The blogID is a variable that must be passed as a parameter to the function and 
 # can then be used in the query to retrieve that blog from the database. This route 
 # is called when the user clicks a link on bloglist.html template.
 # The angle brackets (<>) indicate a variable. 
@@ -194,7 +194,7 @@ def commentEdit(commentID):
     if form.validate_on_submit():
         editComment.update(
             content = form.content.data,
-            modifydate = dt.datetime.utcnow
+            modify_date = dt.datetime.utcnow
         )
         return redirect(url_for('blog',blogID=editComment.blog.id))
 

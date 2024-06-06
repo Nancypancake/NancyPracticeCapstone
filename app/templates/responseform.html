@@ -1,11 +1,6 @@
-<!-- this is a generic form page.  Best way to make a new form page is to 
-copy this one and then edit it. -->
-
 {% extends "base.html" %}
 
 {% block body %}
-        <h1>Form Page Title</h1>
-
         <!--List all errors in a group at the top-->
         {% for field in form.errors %}
             {% for error in form.errors[field] %}
@@ -15,16 +10,25 @@ copy this one and then edit it. -->
             {% endfor %}
         {% endfor %}
 
+        <h1 class="display-5">
+            {{status.mood}}
+            <br>
+            {{status.note}}
+            <br>
+            {{status.favorite}}
+        </h1>
+        <h1 class="display-5">New Response</h1>
+
         <form method=post>
             {{ form.hidden_tag() }}
             
-            {{ form.field.label }} <br>
-            {{ form.field(size=64) }}
+            {{ form.note.label }} <br>
+            {{ form.note(cols=64) }}
             <!--List the errors for this field-->
-            {% for error in form.field.errors %}
+            {% for error in form.note.errors %}
                 <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
-
+            <br>
             {{form.submit()}}
         </form>
         

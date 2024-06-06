@@ -1,45 +1,58 @@
-{% extends "base.html" %}
-
-{% block body %}
-<img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
-
-<img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
-<img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
-
-<img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
-        <h1></h1>
-
-        <form method=post>
-            {{ form.hidden_tag() }}
-
-            <p>
-                Comments here <br>
-                {{ form.content(cols=64, rows=10) }}
-                <!--List the errors for this field-->
-                {% for error in form.content.errors %}
-                    <span style="color: red;">[{{ error }}]</span>
-                {% endfor %}
-            </p>
-
-             <p>
-                <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
-                <img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
-                <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
-                <img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
-
-<img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
-<img src="/static/CloudsPNG.png" class="rounded float-end" width = "200" hieght= "200" alt="...">
-
-
-
-
-
-
-<img src="/static/CloudsPNG.png" class="rounded float-start" width = "200" hieght= "200" alt="...">    </div>
-
-
-                {{form.submit()}}
-            </p>
-        </form>
-       
+{% extends "base.html" %} {% block body %}
+<div class="container-fluid">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col col-lg-2">
+        <img
+          src="\static\blinkstar.gif"
+          class="rounded mx-auto d-block"
+          width="50"
+          height="75"
+        />
+      </div>
+      <div class="col-md-auto">
+        <h1 class="display-3 text-center">Add A Post!</h1>
+      </div>
+      <div class="col col-lg-2">
+        <img
+          src="\static\blinkstar.gif"
+          class="rounded mx-auto d-block"
+          width="50"
+          height="75"
+        />
+      </div>
+    </div>
+    <hr />
+    <div class="text-center">
+      <form method="post">
+        {{ form.hidden_tag() }}
+        <p>
+          {{ form.subject.label }}<br />
+          {{ form.subject(size=64) }}
+          <!--List the errors for this field-->
+          {% for error in form.subject.errors %}
+          <span style="color: red">[{{ error }}]</span>
+          {% endfor %}
+        </p>
+        <p>
+          Free space to share your thoughts<br />
+          {{ form.content(cols=64, rows=10) }}
+          <!--List the errors for this field-->
+          {% for error in form.content.errors %}
+          <span style="color: red">[{{ error }}]</span>
+          {% endfor %}
+        </p>
+        <p>
+          {{ form.tag.label }}<br />
+          {{ form.tag(size=64) }}
+          <!--List the errors for this field-->
+          {% for error in form.subject.errors %}
+          <span style="color: red">[{{ error }}]</span>
+          {% endfor %}
+        </p>
+        <p>{{form.submit()}}</p>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

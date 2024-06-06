@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% if status %}
+    {% if status.user == current_user %}
+        <a data-toggle="tooltip" data-placement="top" title="Delete Status" href="/status/delete/{{status.id}}">
+            <img width="40" class="bottom-image" src="/static/delete.png">
+        </a>
+        <a data-toggle="tooltip" data-placement="top" title="Edit Status" href="/status/edit/{{status.id}}">
+            <img width="40" class="bottom-image" src="/static/edit.png">
+        </a>
+    {% endif %}
+    <h1 class="display-3">{{status.user.fname}} {{status.user.lname}} </h1>
+    <h1 class="display-5">{{moment(status.create_date).format('MMMM Do YYYY')}}</h1>
+    {% if status.modify_date %}
+        modified {{moment(status.modify_date).calendar()}}
+    {% endif %}
+    <br>
+    <p class="fs-3 text-break">
+        {% if status.user.image %}
+            <img width="120" class="img-thumbnail float-start me-2" src="data:image;base64,{{base64encode(sleep.sleeper.image.read())}}">
+        {% endif %}
+            Mood: {{status.mood}} <br>
+            Note: {{status.note}} <br>
+            Favorite: {{status.favorite}} <br>
+    </p>
+    <a href="/response/new/{{status.id}}" class="btn btn-light btn-sm" role="button">New Response</a>
+    {% if responses %}
+    <h1 class="display-5">Responses</h1>
+    {% for response in responses %}
+        {% if current_user == response.user %}
+            <a href="/response/delete/{{response.id}}"><img width="20" src="/static/delete.png"></a> 
+            <a href="/response/edit/{{response.id}}"><img width="20" src="/static/edit.png"></a>
+        {% endif %}
+        {{moment(response.create_date).calendar()}} {{response.user.username}} 
+        {% if response.modify_date %}
+            modified {{moment(response.modify_date).calendar()}}
+        {% endif %}
+        <br>
+        <p class="fs-3">
+            {{response.note}}
+        </p>
+    {% endfor %}
+    {% else %}
+        <h1 class="display-5">No Responses</h1>
+    {% endif %}
+{% else %}
+
+{% endif %}
+
+{% endblock %}

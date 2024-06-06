@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-4">
+        <h1 class="display-3">All Status Growth</h1>
+    </div>
+    <div class="col">
+        <a href="/status/new" class="btn btn-light btn-sm mt-5" role="button">New Status</a>
+    </div>
+</div>
+
+{% if statuses %}
+    {% for status in statuses %}
+        <div class="row border-bottom">
+
+        <div clas="col">
+                <a data-toggle="tooltip" data-placement="top" title="Delete Status" href="/status/delete/{{status.id}}">
+                    <img width="20" class="bottom-image" src="/static/delete.png">
+                </a>
+                <a data-toggle="tooltip" data-placement="top" title="Edit Status" href="/status/edit/{{status.id}}">
+                    <img width="20" class="bottom-image" src="/static/edit.png">
+                </a>
+        </div>
+
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                <h3>Date</h3>
+                {% endif %}
+
+                <a href="/status/{{status.id}}">
+                    {{moment(status.create_date).calendar()}}
+                </a>
+            </div>
+            <div class="col-2">
+                {% if loop.index == 1 %}
+                <h3>User</h3>
+                {% endif %}
+                {{status.user.fname}} {{status.user.lname}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3>Mood</h3>
+                {% endif %}
+                {{status.mood}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3>Note</h3>
+                {% endif %}
+                {{status.note}}
+            </div>
+            <div class="col">
+                {% if loop.index == 1 %}
+                    <h3>Favorite</h3>
+                {% endif %}
+                {{status.favorite}}
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <h2>No More Status</h2>
+{% endif %}
+
+{% endblock %}

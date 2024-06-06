@@ -6,6 +6,7 @@ from flask import render_template
 def index():
     return render_template('index.html')
 
-@app.route('/aboutus')
-def aboutus():
-    return render_template('aboutus.html')
+#making your own route
+@app.route('/overview')
+def overview():
+    return render_template('overview.html')

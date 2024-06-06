@@ -1,52 +1,90 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<nav
+  style="font-family: verdana"
+  class="navbar navbar-expand-lg navbar-light bg-white"
+>
   <div class="container-fluid mb-3">
-    <a class="navbar-brand .navbar-text display-5 text-black font-weight-bold fw-bold" href="/">Adolscent Sleep Tracker</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a
+      class="navbar-brand .navbar-text display-5 text-black font-weight-bold fw-bold"
+      href="/"
+      >SEE-U-Grow</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 display-8 text-black fw-bold" style="margin: 0% 37%;"> 
+      <ul
+        class="navbar-nav me-auto mb-2 mb-lg-0 display-8 text-black fw-bold"
+        style="margin: 0% 37%"
+      >
         <li class="nav-item">
-          <a class="nav-link" href="/sleeps">Sleep</a>
+          <a class="nav-link" href="/status/new">New Status</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/sleep/new">New Sleep</a>
+          <a class="nav-link" href="/statuses">All Status Growth</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/overview">Overview</a>
         </li>
-        <li class='nav-item'>
+        <li class="nav-item">
           <a class="nav-link" href="/blogs">User Feedback</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/myprofile">Update Contact Information</a>
+        </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >Resources
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/myprofile">Update Contact Information</a></li>
+            <li>
+              <a class="dropdown-item" href="https://cimhs.com/"
+                >Free Online Therapy</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="https://www.therapyaid.org/"
+                >Therapy Aid Coalition</a
+              >
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="https://988lifeline.org/?utm_source=google&utm_medium=web&utm_campaign=onebox"
+                >Suicide Hotline</a
+              >
+            </li>
           </ul>
         </li>
-        <li>
-      </li> 
+        <li></li>
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         {% if current_user.is_anonymous %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-
-          </li>
-        {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="/myprofile">
-              {{ current_user.gname }} 
-            </a>
-          </li>          
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-          </li>
-          {% endif %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login') }}">Login</a>
         </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/myprofile"> {{ current_user.gname }} </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>
-</nav>  
+</nav>
